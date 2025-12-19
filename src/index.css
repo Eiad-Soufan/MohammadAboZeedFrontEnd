@@ -1,0 +1,56 @@
+/* ---- Brand base (light theme) ---- */
+:root{
+  --brand-primary:#005467;
+  --brand-accent:#CDDC2D;
+  --brand-secondary:#808285;
+  --brand-secondary-dark:#414042;
+}
+
+html,body,#root{ background:#ffffff; }
+body{
+  font-family: "Noto Naskh Arabic", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  color:#111827;
+}
+
+
+/* ضبط أسماء الخطوط في root لاستخدامها بسهولة */
+:root {
+  --font-ibm-arabic: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-naskh-arabic: "Noto Naskh Arabic", system-ui, serif;
+}
+
+/* العناوين الرئيسية والثانوية بخط IBM Plex Sans Arabic */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-ibm-arabic);
+  font-weight: 600;
+}
+
+/* النصوص العادية والمحتوى بخط Noto Naskh Arabic */
+p,
+li,
+span,
+label,
+input,
+textarea,
+button {
+  font-family: var(--font-naskh-arabic);
+}
+
+/* كلاسات مساعدة لاستخدامها يدويًا في الريأكت عند الحاجة */
+.font-ibm {
+  font-family: var(--font-ibm-arabic);
+}
+
+.font-naskh {
+  font-family: var(--font-naskh-arabic);
+}
+
+/* بقية محتوى ملفك القديم يبقى كما هو تحت هذا السطر */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
