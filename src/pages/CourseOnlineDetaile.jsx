@@ -1,11 +1,10 @@
 // src/pages/CourseOnlineDetaile.jsx
 import { motion } from "framer-motion";
-import { AlertCircle, ChevronLeft, Loader2, Sparkles } from "lucide-react";
+import { AlertCircle, ChevronLeft, ExternalLink, Loader2, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { GhostButton } from "../components/ui/Button";
+import { GhostButton, PrimaryButton } from "../components/ui/Button";
 import { api } from "../lib/api";
-
 const BRAND = "#005467";
 const BRAND_DARK = "#004452";
 const INK = "#414042";
@@ -122,6 +121,7 @@ export default function CourseOnlineDetaile() {
             setError("");
             try {
                 const { data } = await api.get(`/api/courses/onsite/${slug}/`);
+                console.log(data)
                 setItem(data ?? null);
             } catch (e) {
                 setError("تعذّر تحميل تفاصيل هذه الدورة.");
@@ -360,8 +360,24 @@ export default function CourseOnlineDetaile() {
                                         </ol>
                                     </div>
                                 )}
-
-                                <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+                                <div className="mt-4 flex items-center gap-2">
+                                    {item.url && (
+                                        <a href={item.url} target="_blank" rel="noreferrer" className="flex-1">
+                                            <PrimaryButton
+                                                className="w-full !text-white"
+                                                style={{
+                                                    backgroundImage: `linear-gradient(135deg, ${BRAND} 0%, #0A6F82 60%, ${BRAND} 100%)`,
+                                                    boxShadow: `0 18px 46px -18px rgba(0,84,103,.55)`,
+                                                    border: "1px solid rgba(255,255,255,.18)",
+                                                }}
+                                            >
+                                                <ExternalLink className="h-4 w-4" />
+                                                شراء الدورة
+                                            </PrimaryButton>
+                                        </a>
+                                    )}
+                                </div>
+                                {/* <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
                                     <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">
                                         لطلب هذه الدورة أو الاستفسار
                                     </h2>
@@ -390,7 +406,7 @@ export default function CourseOnlineDetaile() {
                                             </a>
                                         </p>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className="mt-10 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
                                     <GhostButton onClick={() => window.history.back()}>
