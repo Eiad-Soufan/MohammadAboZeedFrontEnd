@@ -129,8 +129,8 @@ export default function BookDetail() {
                                 </div>
 
                                 <div className="mt-4 flex items-center gap-2">
-                                    {item.buy_url && (
-                                        <a href={item.buy_url} target="_blank" rel="noreferrer" className="flex-1">
+                                    {item.url && (
+                                        <a href={item.url} target="_blank" rel="noreferrer" className="flex-1">
                                             <PrimaryButton
                                                 className="w-full !text-white"
                                                 style={{
