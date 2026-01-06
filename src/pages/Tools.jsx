@@ -282,8 +282,8 @@ export default function Tools() {
                                         <p className="mt-2 text-sm text-slate-700 line-clamp-3">{t.description}</p>
 
                                         <div className="mt-auto pt-4 flex items-center gap-2">
-                                            {t.link_url ? (
-                                                <a href={t.link_url} target="_blank" rel="noreferrer" className="flex-1">
+                                            {t.url ? (
+                                                <a href={t.url} target="_blank" rel="noreferrer" className="flex-1">
 
                                                     <CardActionButton>
                                                         <ExternalLink className="h-4 w-4" />
